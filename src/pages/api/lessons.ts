@@ -11,15 +11,13 @@ export default async function handler(
 ) {
   const {recordId} = req.query as {recordId: string}
 
-  let data = await lessonsTable.select({}).firstPage()
+  console.log("recordId: " + recordId)
 
-  const formattedData = data.map((item) => ({
-    id: item.id,
-    ...item.fields,
-  }))
+  let data = (await lessonsTable.find("recNvBuq3DUQkizYM")).fields
 
-  // your code here
-  // see api reference: https://airtable.com/appofHk5rJkpaimm1/api/docs#javascript/authentication
+  const formattedData = data
+
+  console.log(formattedData)
 
   return res.status(200).send({data: formattedData}) // populate this with your data
 }
