@@ -7,7 +7,7 @@ type ContentBoxProps = {
   content: string
 }
 const ContentBox = ({content}: ContentBoxProps) => {
-  return <div></div>
+  return <ReactMarkdown children={content} remarkPlugins={[remarkGfm]} />
 }
 
 export default ContentBox

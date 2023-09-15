@@ -1,3 +1,4 @@
+import BaseApp from "@/components/BaseApp"
 import BaseLayout from "@/components/BaseLayout"
 import {
   type GetServerSidePropsContext,
@@ -7,7 +8,11 @@ import {
 export default function Lesson(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
-  return <BaseLayout>frontend code here</BaseLayout>
+  return (
+    <BaseLayout>
+      <BaseApp />
+    </BaseLayout>
+  )
 }
 
 export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
