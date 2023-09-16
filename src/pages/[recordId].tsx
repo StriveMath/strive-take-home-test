@@ -20,11 +20,21 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
   // server side code here
   const {recordId} = ctx.params as {recordId: string}
 
+  // routing to this page without knowing the recordId offhand will throw errow
+
   const res2 = await fetch(
     `http://localhost:3000/api/lessons?recordId=${recordId}`
   )
   const result = await res2.json()
-  const record = result.data.record
+
+  if (!result || !result.data) {
+    return {
+      notFound: true,
+    }
+  }
+  const record = result.data?.record
+
+  // i need list of records for the navigation header labels
 
   const res = await fetch(`http://localhost:3000/api/lessons`)
   const resultLesson = await res.json()

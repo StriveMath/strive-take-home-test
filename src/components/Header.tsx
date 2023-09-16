@@ -12,7 +12,7 @@ type HeaderProps = {
 const Header = ({activeNumber, listItems, setActive}: HeaderProps) => {
   const router = useRouter()
   return (
-    <ul className='steps w-4/5'>
+    <ul className='steps w-full'>
       {listItems?.map((item, idx) => (
         <li
           onClick={() => {

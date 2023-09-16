@@ -18,14 +18,20 @@ const BaseApp = ({records, record}: BaseAppProps) => {
 
   const contents = record
     ? record.Content
+    : records?.map((record) => record.Content)[0]
+
+  // this method works as well but used prefetch content before routing to detail page (/recordId)
+  /*
+      const contents = record
+    ? record.Content
     : records?.map((record) => record.Content)
 
-  const formattedContents = Array.isArray(contents)
-    ? contents?.slice(activeNumber, activeNumber + 1)[0]
-    : contents
-  console.log("formattedContents", formattedContents)
+        const formattedContents = Array.isArray(contents)
+      ? contents?.slice(activeNumber, activeNumber + 1)[0]
+      : contents
+    */
 
-  //   using recordId to fetch data
+  const formattedContents = contents
 
   return (
     <div className=''>
