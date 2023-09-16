@@ -8,7 +8,6 @@ export default function Home(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
   const data = props.records as lessonsProps[]
-
   const firstId = data.map((record) => record.id)[0]
 
   return <StarterBase id={firstId} />
@@ -17,7 +16,7 @@ export default function Home(
 export const getServerSideProps = async () => {
   // server side code here
 
-  // that's why  i fetch data in the main for the navigation header names and label
+  // i need to have a known id from the lesson table, to avoid breaking /recordId details page
   const res = await fetch(`http://localhost:3000/api/lessons`)
   const result = await res.json()
   const records = result.data.records
