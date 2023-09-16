@@ -1,5 +1,6 @@
 "use client"
 import Link from "next/link"
+import {useRouter} from "next/router"
 import React from "react"
 
 type HeaderProps = {
@@ -9,17 +10,20 @@ type HeaderProps = {
 }
 
 const Header = ({activeNumber, listItems, setActive}: HeaderProps) => {
+  const router = useRouter()
   return (
     <ul className='steps w-4/5'>
       {listItems?.map((item, idx) => (
-        <Link
-          href={""}
-          onClick={() => setActive && setActive(idx)}
+        <li
+          onClick={() => {
+            router.push(`/${item.id}`)
+            setActive && setActive(idx)
+          }}
           key={idx}
           className={`${activeNumber >= idx ? "step step-primary" : "step"}`}
         >
-          <li>{item.name}</li>
-        </Link>
+          {item.name}
+        </li>
       ))}
     </ul>
   )
