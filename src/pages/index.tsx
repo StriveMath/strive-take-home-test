@@ -1,10 +1,19 @@
 "use client"
-import Image from "next/image"
-import {Inter} from "next/font/google"
-import Header from "@/components/Header"
-import {useState} from "react"
-import ContentBox from "@/components/ContentBox"
-import ReactMarkdown from "react-markdown"
-import remarkGfm from "remark-gfm"
+import BaseApp from "@/components/BaseApp"
+import {InferGetServerSidePropsType} from "next"
 
-export default function Home() {}
+export default function Home(
+  props: InferGetServerSidePropsType<typeof getServerSideProps>
+) {
+  return <BaseApp records={props.records} />
+}
+
+export const getServerSideProps = async () => {
+  // server side code here
+
+  const res = await fetch(`http://localhost:3000/api/lessons`)
+  const records = await res.json()
+  return {
+    props: {records},
+  }
+}

@@ -1,5 +1,6 @@
 import BaseApp from "@/components/BaseApp"
 import BaseLayout from "@/components/BaseLayout"
+import {lessonsProps} from "@/types"
 import {
   type GetServerSidePropsContext,
   type InferGetServerSidePropsType,
@@ -10,7 +11,7 @@ export default function Lesson(
 ) {
   return (
     <BaseLayout>
-      <BaseApp />
+      <BaseApp record={props.record} />
     </BaseLayout>
   )
 }
@@ -19,7 +20,11 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
   // server side code here
   const {recordId} = ctx.params as {recordId: string}
 
+  const res2 = await fetch(
+    `http://localhost:3000/api/lessons?recordId=${recordId}`
+  )
+  const record = await res2.json()
   return {
-    props: {recordId},
+    props: {record},
   }
 }

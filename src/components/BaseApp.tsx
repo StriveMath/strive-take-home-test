@@ -2,18 +2,25 @@
 
 import Header from "./Header"
 import {useState} from "react"
-import ReactMarkdown from "react-markdown"
-import remarkGfm from "remark-gfm"
 import ContentBox from "./ContentBox"
+import {lessonsProps} from "@/types"
 
-const BaseApp = () => {
+type BaseAppProps = {
+  records?: lessonsProps[]
+  record?: lessonsProps
+}
+
+const BaseApp = ({records, record}: BaseAppProps) => {
   const [activeNumber, setActive] = useState(0)
+
+  console.log("records:", records)
+
   const content =
     "# UFOs\n\nIn this lesson we are going to create UFOs,\n\n# Code\n\nThis is another slide\n\n## UFO Code\n\n```python\ndef ufo():\n    # this should display as a pre block\n    circle(100, 200, 100)\n```\n\nWe can make the UFO dynamic with\n\n```\ndef ufo2(x,y):\n    cirlce(x, y, 200)\n```\n\n# Conclusion\n\nWell done, you've learnt how to draw a ufo"
   return (
     <div className=''>
       <Header
-        listItems={["Olumide", "bola", "ade", "tolu"]}
+        listItems={[]}
         activeNumber={activeNumber}
         setActive={(idx) => setActive(idx)}
       />
