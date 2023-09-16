@@ -1,4 +1,5 @@
 import BaseApp from "@/components/BaseApp"
+import BaseLayout from "@/components/BaseLayout"
 import StarterBase from "@/components/StarterBasr"
 import {lessonsProps} from "@/types"
 import {InferGetServerSidePropsType} from "next"
@@ -10,7 +11,11 @@ export default function Home(
   const data = props.records as lessonsProps[]
   const firstId = data.map((record) => record.id)[0]
 
-  return <StarterBase id={firstId} />
+  return (
+    <BaseLayout>
+      <StarterBase id={firstId} />
+    </BaseLayout>
+  )
 }
 
 export const getServerSideProps = async () => {

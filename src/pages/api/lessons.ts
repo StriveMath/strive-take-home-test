@@ -12,13 +12,12 @@ export default async function handler(
   const {recordId} = req.query as {recordId: string}
 
   try {
-    console.log("recordId: " + recordId)
-
     let record
     if (recordId) {
       record = (await lessonsTable.find(`${recordId}`)).fields
     }
 
+    // for the purpose of this assessment, first page is enough
     const records = (await lessonsTable.select({}).firstPage()).map((item) => ({
       id: item.id,
       ...item.fields,
@@ -33,7 +32,6 @@ export default async function handler(
 
     return res.status(200).send({data: formattedData})
   } catch (error) {
-    res.status(404).send({msg: "not found"})
+    res.status(400).send({msg: "Bad request"})
   }
-  // populate this with your data
 }
