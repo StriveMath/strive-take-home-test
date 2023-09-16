@@ -10,15 +10,15 @@ type HeaderProps = {
 
 const Header = ({activeNumber, listItems, setActive}: HeaderProps) => {
   return (
-    <ul className='steps w-3/5'>
+    <ul className='steps w-4/5'>
       {listItems?.map((item, idx) => (
-        <Link href={""} key={idx}>
-          <li
-            className={`${activeNumber >= idx ? "step step-primary" : "step"}`}
-            onClick={() => setActive && setActive(idx)}
-          >
-            {item.name}
-          </li>
+        <Link
+          href={""}
+          onClick={() => setActive && setActive(idx)}
+          key={idx}
+          className={`${activeNumber >= idx ? "step step-primary" : "step"}`}
+        >
+          <li>{item.name}</li>
         </Link>
       ))}
     </ul>

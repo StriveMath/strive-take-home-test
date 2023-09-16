@@ -1,6 +1,6 @@
 export type lessonsProps = {
   id: string
-  Contents: string
+  Content: string
   Name: string
   "Record ID": string
   slug?: string

@@ -23,7 +23,8 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
   const res2 = await fetch(
     `http://localhost:3000/api/lessons?recordId=${recordId}`
   )
-  const record = await res2.json()
+  const result = await res2.json()
+  const record = result.data.record
   return {
     props: {record},
   }

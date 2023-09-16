@@ -12,7 +12,8 @@ export const getServerSideProps = async () => {
   // server side code here
 
   const res = await fetch(`http://localhost:3000/api/lessons`)
-  const records = await res.json()
+  const result = await res.json()
+  const records = result.data.records
   return {
     props: {records},
   }
