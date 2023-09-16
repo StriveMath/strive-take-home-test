@@ -20,7 +20,7 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
   // server side code here
   const {recordId} = ctx.params as {recordId: string}
 
-  // routing to this page without knowing the recordId offhand will throw errow
+  // routing to this page without knowing the recordId offhand will throw error, so instead 404 page is thrown
 
   const res2 = await fetch(
     `http://localhost:3000/api/lessons?recordId=${recordId}`

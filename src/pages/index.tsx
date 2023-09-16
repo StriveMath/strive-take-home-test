@@ -1,12 +1,17 @@
-"use client"
 import BaseApp from "@/components/BaseApp"
+import StarterBase from "@/components/StarterBasr"
+import {lessonsProps} from "@/types"
 import {InferGetServerSidePropsType} from "next"
+import {useRouter} from "next/router"
 
 export default function Home(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
-  // i return base app here as default page
-  return <BaseApp records={props.records} />
+  const data = props.records as lessonsProps[]
+
+  const firstId = data.map((record) => record.id)[0]
+
+  return <StarterBase id={firstId} />
 }
 
 export const getServerSideProps = async () => {

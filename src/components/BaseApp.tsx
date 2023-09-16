@@ -16,22 +16,15 @@ const BaseApp = ({records, record}: BaseAppProps) => {
   console.log("records:", records)
   console.log("record:", record)
 
+  // this method used prefetch content before routing to detail page (/recordId)
+  // because i need all records names to load navigation labels
   const contents = record
-    ? record.Content
-    : records?.map((record) => record.Content)[0]
-
-  // this method works as well but used prefetch content before routing to detail page (/recordId)
-  /*
-      const contents = record
     ? record.Content
     : records?.map((record) => record.Content)
 
-        const formattedContents = Array.isArray(contents)
-      ? contents?.slice(activeNumber, activeNumber + 1)[0]
-      : contents
-    */
-
-  const formattedContents = contents
+  const formattedContents = Array.isArray(contents)
+    ? contents?.slice(activeNumber, activeNumber + 1)[0]
+    : contents
 
   return (
     <div className=''>
@@ -42,6 +35,7 @@ const BaseApp = ({records, record}: BaseAppProps) => {
         }))}
         activeNumber={activeNumber}
         setActive={(idx) => setActive(idx)}
+        recordId={record?.id}
       />
       <ContentBox content={formattedContents as string} />
     </div>

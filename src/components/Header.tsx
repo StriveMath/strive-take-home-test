@@ -7,10 +7,17 @@ type HeaderProps = {
   activeNumber: number
   listItems?: {id: string; name: string}[]
   setActive?: (value: any) => void
+  recordId?: string
 }
 
-const Header = ({activeNumber, listItems, setActive}: HeaderProps) => {
+const Header = ({
+  activeNumber,
+  listItems,
+  setActive,
+  recordId,
+}: HeaderProps) => {
   const router = useRouter()
+
   return (
     <ul className='steps w-full'>
       {listItems?.map((item, idx) => (
@@ -20,7 +27,11 @@ const Header = ({activeNumber, listItems, setActive}: HeaderProps) => {
             setActive && setActive(idx)
           }}
           key={idx}
-          className={`${activeNumber >= idx ? "step step-primary" : "step"}`}
+          className={`${
+            activeNumber >= idx || item.id === recordId
+              ? "step step-primary"
+              : "step"
+          }`}
         >
           {item.name}
         </li>
