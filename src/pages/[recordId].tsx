@@ -11,7 +11,7 @@ export default function Lesson(
 ) {
   return (
     <BaseLayout>
-      <BaseApp record={props.record} />
+      <BaseApp record={props.record} records={props.records} />
     </BaseLayout>
   )
 }
@@ -25,7 +25,11 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
   )
   const result = await res2.json()
   const record = result.data.record
+
+  const res = await fetch(`http://localhost:3000/api/lessons`)
+  const resultLesson = await res.json()
+  const records = resultLesson.data.records
   return {
-    props: {record},
+    props: {records, record},
   }
 }
