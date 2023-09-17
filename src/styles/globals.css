@@ -5,6 +5,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --pre_bg_color: #eee;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -12,6 +13,7 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
+    --pre_bg_color: #2a323c;
   }
 }
 
@@ -27,4 +29,14 @@ body {
 
 .markdown > * {
   all: revert;
+}
+
+pre {
+  background: var(--pre_bg_color) !important;
+  padding: 15px !important;
+  border-radius: 10px !important;
+  -webkit-border-radius: 10px !important;
+  -moz-border-radius: 10px !important;
+  -ms-border-radius: 10px !important;
+  -o-border-radius: 10px !important;
 }
