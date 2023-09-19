@@ -25,3 +25,14 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.markdown-content>*{
+  all: revert;
+}
+.markdown-content pre{
+  background-color: #15191E;
+  padding: 10px;
+  border: 1px solid #ccc;
+  font-family: 'Courier New', monospace;
+  width: 50%;
+}
