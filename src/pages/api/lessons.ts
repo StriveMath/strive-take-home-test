@@ -14,24 +14,27 @@ export default async function handler(
   try {
     let record
     if (recordId) {
-      record = (await lessonsTable.find(`${recordId}`)).fields
+      try {
+        record = (await lessonsTable.find(`${recordId}`)).fields
+        return res.status(200).send({data: record})
+      } catch (error) {
+        res.status(400).send({msg: "Invalid record id"})
+      }
+    } else {
+      try {
+        // for the purpose of this assessment, first page is enough
+        const records = (await lessonsTable.select({}).firstPage()).map(
+          (item) => ({
+            id: item.id,
+            ...item.fields,
+          })
+        )
+        return res.status(200).send({data: records})
+      } catch (error) {
+        res.status(500).send({msg: "Internal Server Error"})
+      }
     }
-
-    // for the purpose of this assessment, first page is enough
-    const records = (await lessonsTable.select({}).firstPage()).map((item) => ({
-      id: item.id,
-      ...item.fields,
-    }))
-
-    const formattedData = {
-      record,
-      records,
-    }
-
-    console.log(formattedData)
-
-    return res.status(200).send({data: formattedData})
   } catch (error) {
-    res.status(400).send({msg: "Bad request"})
+    res.status(500).send({msg: "Internal Server Error"})
   }
 }
