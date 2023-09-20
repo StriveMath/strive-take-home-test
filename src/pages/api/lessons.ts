@@ -11,30 +11,29 @@ export default async function handler(
 ) {
   const {recordId} = req.query as {recordId: string}
 
-  try {
-    let record
-    if (recordId) {
-      try {
-        record = (await lessonsTable.find(`${recordId}`)).fields
-        return res.status(200).send({data: record})
-      } catch (error) {
-        res.status(400).send({msg: "Invalid record id"})
-      }
-    } else {
-      try {
-        // for the purpose of this assessment, first page is enough
-        const records = (await lessonsTable.select({}).firstPage()).map(
-          (item) => ({
-            id: item.id,
-            ...item.fields,
-          })
-        )
-        return res.status(200).send({data: records})
-      } catch (error) {
-        res.status(500).send({msg: "Internal Server Error"})
-      }
+  let record
+  if (recordId) {
+    try {
+      record = (await lessonsTable.find(`${recordId}`)).fields
+      console.log("records", record)
+
+      return res.status(200).json({data: record})
+    } catch (error) {
+      res.status(400).send({msg: "Invalid record id"})
     }
-  } catch (error) {
-    res.status(500).send({msg: "Internal Server Error"})
+  } else {
+    try {
+      // for the purpose of this assessment, first page is enough
+      const records = (await lessonsTable.select({}).firstPage()).map(
+        (item) => ({
+          id: item.id,
+          ...item.fields,
+        })
+      )
+
+      return res.status(200).json({data: records})
+    } catch (error) {
+      res.status(500).send({msg: "Internal Server Error"})
+    }
   }
 }

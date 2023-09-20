@@ -31,13 +31,14 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
       notFound: true,
     }
   }
-  const record = result.data?.record
+  const record = result.data
 
   // i need list of records for the navigation header labels
 
   const res = await fetch(`http://localhost:3000/api/lessons`)
   const resultLesson = await res.json()
-  const records = resultLesson.data.records
+  const records = resultLesson.data
+
   return {
     props: {records, record},
   }

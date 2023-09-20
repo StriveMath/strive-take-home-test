@@ -24,7 +24,10 @@ export const getServerSideProps = async () => {
   // i need to have a known id from the lesson table, to avoid breaking /recordId details page
   const res = await fetch(`http://localhost:3000/api/lessons`)
   const result = await res.json()
-  const records = result.data.records
+  const records = result.data
+
+  console.log("records:", records)
+
   return {
     props: {records},
   }
