@@ -26,8 +26,6 @@ export const getServerSideProps = async () => {
   const result = await res.json()
   const records = result.data
 
-  console.log("records:", records)
-
   return {
     props: {records},
   }

@@ -13,9 +13,6 @@ type BaseAppProps = {
 const BaseApp = ({records, record}: BaseAppProps) => {
   const [activeNumber, setActive] = useState(0)
 
-  console.log("records:", records)
-  console.log("record:", record)
-
   const contents = record ? record.Content : " "
 
   const formattedContents = contents
