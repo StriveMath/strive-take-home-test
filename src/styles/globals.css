@@ -1,27 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+body{
+    font-family: 'Poppins', sans-serif !important;
+
+}
+.min-h-screen {
+    background-image: url(/animated-bg.svg);
+    background-size: cover;
+    background-position: right;
+}
+.text-shadow{
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #fff;
+    -moz-text-stroke-color: #fff;
+    -moz-text-stroke-width: 1px;
+}
+.table-custom td {
+    background-color: rgb(2 31 68 / 69%);
+}
+.step-form {
+    margin-bottom: 30px;
+}
+.step-content {
+    background-color: #021022b5;
+    color: #fff;
+}
+.step-content *{
+    color: #fff;
+}
+.step-content h1 {
+    font-size: 48px;
+}
+.step-content h2 {
+    font-size: 40px;
+}
+.step-content h3 {
+    font-size: 32px;
+}
+.step-content h4 {
+    font-size: 24px;
+}
+.step-content h5 {
+    font-size: 20px;
+}
+.step-content h6 {
+    font-size: 18px;
+}
+.step-content pre {
+    display: block;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    font-size: 13px;
+    line-height: 1.42857143;
+    word-break: break-all;
+    word-wrap: break-word;
+    color: #333;
+    background-color: #1c1d1e91;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.step-content ol{
+  list-style: auto;
+}
+.step-content ul{
+  list-style: initial;
+}
+.step-content ol, .step-content ul {
+    padding-left: 25px;
+    margin-bottom: 1rem;
+}
+.step-content p {
+    margin-bottom: 1rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@media only screen and (max-width: 767px) {
+    .step-form .step-button {
+        display: none;
+    }
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
