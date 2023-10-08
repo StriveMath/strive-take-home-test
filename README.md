@@ -1,34 +1,48 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Strive Test
 
-## Getting Started
+## Table of contents
 
-First, run the development server:
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Improvements](#screenshots)
+  - [Links](#links)
+  - [Built with](#built-with)
 
-```bash
-yarn dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Overview
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- Test app for strive. It was built with Next.js(Page Directory), and TypeScript, data called from api, and Zustand was used for state management.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+# IMPORTANT
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- To run the app follow these steps:
+- git clone
+- npm install
+- npm run dev
+- open in brower: localhost:3000
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Node version is v18.16.0
 
-## Learn More
+### The challenge
 
-To learn more about Next.js, take a look at the following resources:
+Users should be able to:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- See different lessons
+- Go through different slides per lesson
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Improvements
+- Lots of improvements to be made. This took me 5hrs 30min split between 2 days.
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Links
+<!--  -->
+- Solution URL: [GitHub](https://github.com/mikenjuki/FluyoDemo)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Built with
+
+- Next.js
+- TypeScript
+- Airtable API
+- Daisy UI
+- Zustand
+- Redbull😂
