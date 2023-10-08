@@ -10,7 +10,7 @@
 
 ## Overview
 
-- Test app for strive. It was built with Next.js(Page Directory), and TypeScript, data called from api, and Zustand was used for state management. The short video demo is below under links.
+- Test app for strive. It was built with Next.js(Page Directory), and TypeScript, data called from api, and Zustand was used for state management.
 
 # IMPORTANT
 
@@ -39,7 +39,6 @@ Users should be able to:
 <!--  -->
 
 - Solution URL: [GitHub](https://github.com/mikenjuki/strive--test)
-- Video Demo: [Loom Video](https://www.loom.com/share/4b7e2b4f42254d5eaa7c3458b214a191?sid=02516f2f-bbff-4156-ad98-8df2edc1afa3)
 
 ### Built with
 
