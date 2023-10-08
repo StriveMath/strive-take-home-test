@@ -47,4 +47,4 @@ Users should be able to:
 - Airtable API
 - Daisy UI
 - Zustand
-- Redbull😂
+- Redbull😄
