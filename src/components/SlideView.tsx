@@ -7,6 +7,7 @@ interface SlideViewProps {
   recordId: string;
 }
 
+// Individual lesson sections broken down to slides based on title
 const SlideView = ({ recordId }: SlideViewProps) => {
   const [lessonData, setLessonData] = useState("");
   const activeStep = useStepStore((state) => state.activeStep);
@@ -20,7 +21,7 @@ const SlideView = ({ recordId }: SlideViewProps) => {
         const data = await res.json();
         const modified = data.fields.Content.replace(/\\n/g, "\n");
         const dataMD = marked.parse(modified);
-        console.log("🚀 ~ file: SlideView.tsx:13 ~ fetchData ~ data:", dataMD);
+        // console.log("🚀 ~ file: SlideView.tsx:13 ~ fetchData ~ data:", dataMD);
 
         // divide html string into sections
         const sections = [];
@@ -51,7 +52,6 @@ const SlideView = ({ recordId }: SlideViewProps) => {
           sections.push(currentSection);
         }
 
-        console.log(sections);
         setSlides(sections);
 
         setLessonData(dataMD);
@@ -68,7 +68,7 @@ const SlideView = ({ recordId }: SlideViewProps) => {
   return (
     <section className="w-full h-full">
       <SectionHeader />
-      {lessonData === "" ? ( // Check if lessonData is empty
+      {lessonData === "" ? (
         <div>Loading...</div>
       ) : (
         <article

@@ -7,6 +7,7 @@ interface StepStore {
   setSlides: (slides: any[]) => void;
 }
 
+// Global State store
 export const useStepStore = create<StepStore>((set) => ({
   activeStep: 0,
   slides: [],

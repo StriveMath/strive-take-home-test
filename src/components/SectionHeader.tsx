@@ -8,6 +8,7 @@ import { Button } from "./ui/Button";
 
 interface SectionHeaderProps {}
 
+// Navigation for our lesson slides
 const SectionHeader: FC<SectionHeaderProps> = ({}) => {
   const activeStep = useStepStore((state) => state.activeStep);
   const setActiveStep = useStepStore((state) => state.setActiveStep);

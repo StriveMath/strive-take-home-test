@@ -5,6 +5,8 @@ import { getData } from "./api/lessons";
 
 const inter = Inter({ subsets: ["latin"] });
 
+//Reroute the user to first lesson first slide on load
+// In prod user can go to lessons via links from here
 export default function Home({
   error,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
@@ -19,7 +21,6 @@ export default function Home({
 }
 
 export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
-  // server side code here
   const recordsList = await getData();
   if (recordsList) {
     return {

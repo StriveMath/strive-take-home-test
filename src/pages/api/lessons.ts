@@ -5,6 +5,7 @@ const airtable = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY });
 const baseId = process.env.AIRTABLE_BASE_ID as string;
 const base = airtable.base(baseId);
 
+// meant to fetch our lessons
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
@@ -37,7 +38,7 @@ export const getData = async () => {
           records = recs.map((r) => {
             return {
               id: r.id,
-              name: r.fields.Name,
+              name: r.fields.Name as string,
             };
           });
         resolve();

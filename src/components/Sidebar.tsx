@@ -5,6 +5,7 @@ interface SidebarProps {
   items: { id: number; name: string }[];
 }
 
+// Move through different creator(s) lessons here
 export default function Sidebar({ items }: SidebarProps) {
   const renderedTitles = items?.map(({ id, name }) => {
     return (

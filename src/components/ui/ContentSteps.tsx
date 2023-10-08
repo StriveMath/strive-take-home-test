@@ -1,15 +1,9 @@
 import { useStepStore } from "@/store/stepsStore";
 import { FC } from "react";
 
-interface ContentStepsProps {
-  steps?: string[];
-}
+interface ContentStepsProps {}
 
-//TODO import steps as props to make this dynamic
-
-const stepTitles = ["Section 1", "Section 2", "Named Section", "Embeddings"];
-
-const ContentSteps: FC<ContentStepsProps> = ({ steps }) => {
+const ContentSteps: FC<ContentStepsProps> = ({}) => {
   const activeStep = useStepStore((state) => state.activeStep);
   const slides = useStepStore((state) => state.slides);
   const setActiveStep = useStepStore((state) => state.setActiveStep);
